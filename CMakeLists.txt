@@ -8,7 +8,7 @@ endif()
 
 
 # Set the name of the project
-set(target_name GFXFramework)
+set(target_name AvisStrike)
 project(${target_name} C CXX)
 
 

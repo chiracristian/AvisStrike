@@ -1,11 +1,11 @@
-#include "lab_m1/Tema1/Tema1.h"
+#include "lab_m1/AvisStrike/AvisStrikeScene.h"
 
 #include <vector>
 #include <iostream>
 #include <iomanip>
 
-#include "lab_m1/Tema1/transform2D.h"
-#include "lab_m1/Tema1/object2D.h"
+#include "lab_m1/AvisStrike/transform2D.h"
+#include "lab_m1/AvisStrike/object2D.h"
 #include "Constants.h"
 
 #include "shapes/ShapeFactory.h"
@@ -25,14 +25,14 @@
 
 using namespace m1;
 
-Tema1::Tema1()
+AvisStrikeScene::AvisStrikeScene()
     : placementGrid(SPACESHIP_GRID_ROWS, SPACESHIP_GRID_COLS)
 {
 
 }
 
 
-Tema1::~Tema1()
+AvisStrikeScene::~AvisStrikeScene()
 {
     
 }
@@ -44,7 +44,7 @@ void deleteSwapAndPop(std::vector<T>& elements, size_t index)
     elements.pop_back();
 }
 
-void Tema1::initializeMeshes()
+void AvisStrikeScene::initializeMeshes()
 {
     // Game components
 
@@ -158,7 +158,7 @@ void Tema1::initializeMeshes()
     AddMeshToList(upgradeButtonMesh);
 }
 
-void Tema1::Init()
+void AvisStrikeScene::Init()
 {
     // Setup the camera
     glm::ivec2 resolution = window->GetResolution();
@@ -368,7 +368,7 @@ void Tema1::Init()
     updateEditorText();
 }
 
-void Tema1::drawEntity(const Entity& entity)
+void AvisStrikeScene::drawEntity(const Entity& entity)
 {
     RenderMesh2D(
         meshes[entity.getMeshName()],
@@ -377,7 +377,7 @@ void Tema1::drawEntity(const Entity& entity)
     );
 }
 
-void Tema1::drawUIElement(const EditorUIElement& element)
+void AvisStrikeScene::drawUIElement(const EditorUIElement& element)
 {
     RenderMesh2D(
         meshes[element.getMeshName()],
@@ -386,7 +386,7 @@ void Tema1::drawUIElement(const EditorUIElement& element)
     );
 }
 
-void Tema1::drawEditor()
+void AvisStrikeScene::drawEditor()
 {
     // Draw the dragged block
     if (dragging) {
@@ -437,7 +437,7 @@ void Tema1::drawEditor()
     }
 }
 
-void Tema1::resetGame()
+void AvisStrikeScene::resetGame()
 {
     // Reset the score and the wave
     currentScore = 0;
@@ -460,7 +460,7 @@ void Tema1::resetGame()
     initializeWave();
 }
 
-void Tema1::initializeWave()
+void AvisStrikeScene::initializeWave()
 {   
     currentState = GameState::PLAYING;
     projectiles.clear();
@@ -498,7 +498,7 @@ void Tema1::initializeWave()
     updateHUDText();
 }
 
-void Tema1::updateGame(float deltaTimeSeconds)
+void AvisStrikeScene::updateGame(float deltaTimeSeconds)
 {
     // Process spaceship
     spaceship->update(deltaTimeSeconds);
@@ -599,7 +599,7 @@ void Tema1::updateGame(float deltaTimeSeconds)
     }
 }
 
-void Tema1::updateHUDText()
+void AvisStrikeScene::updateHUDText()
 {
     std::ostringstream ss;
     ss << std::left << std::setfill(' ');
@@ -612,7 +612,7 @@ void Tema1::updateHUDText()
     HUDText = ss.str();
 }
 
-void Tema1::updateMiddleText()
+void AvisStrikeScene::updateMiddleText()
 {
     // Determine the size in pixels of the characters
     glm::vec2 charSize = {
@@ -647,7 +647,7 @@ void Tema1::updateMiddleText()
     middleTextPos.y = SCREEN_HEIGHT / 2.f - charSize.y / 2.f;
 }
 
-void Tema1::drawMiddleText()
+void AvisStrikeScene::drawMiddleText()
 {
     MiddleTextRenderer->RenderText(
         middleText, 
@@ -658,7 +658,7 @@ void Tema1::drawMiddleText()
     );
 }
 
-void Tema1::updateEditorText()
+void AvisStrikeScene::updateEditorText()
 {
     moneyDisplayEditor = "Money: $" + std::to_string(money);
 
@@ -669,7 +669,7 @@ void Tema1::updateEditorText()
         + " (upgrade cost $" + std::to_string(getUpgradeCost(turretLevel)) + ")";
 }
 
-void Tema1::drawEditorText()
+void AvisStrikeScene::drawEditorText()
 {
     float yPos = 1.5f * AVAILABLE_BLOCK_LENGTH + HUD_POS.y;
 
@@ -685,7 +685,7 @@ void Tema1::drawEditorText()
     HUDRenderer->RenderText(turretUpgradeDisplay, HUD_POS.x, yPos, 1.f, HUD_TEXT_COLOR);
 }
 
-void Tema1::drawGame()
+void AvisStrikeScene::drawGame()
 {
     // Draw the spaceship if not game over
     if (currentState != GameState::GAME_OVER) {
@@ -713,13 +713,13 @@ void Tema1::drawGame()
     HUDRenderer->RenderText(HUDText, HUD_POS.x, HUD_POS.y, 1.f, HUD_TEXT_COLOR);
 }
 
-void Tema1::setGameOver()
+void AvisStrikeScene::setGameOver()
 {
     currentState = GameState::GAME_OVER;
     updateMiddleText();
 }
 
-void Tema1::FrameStart()
+void AvisStrikeScene::FrameStart()
 {
     // Set the clear color
     glClearColor(
@@ -738,7 +738,7 @@ void Tema1::FrameStart()
 }
 
 
-void Tema1::Update(float deltaTimeSeconds)
+void AvisStrikeScene::Update(float deltaTimeSeconds)
 {
     switch (currentState) {
     case GameState::EDITOR:
@@ -767,11 +767,11 @@ void Tema1::Update(float deltaTimeSeconds)
 }
 
 
-void Tema1::FrameEnd()
+void AvisStrikeScene::FrameEnd()
 {
 }
 
-void Tema1::OnInputUpdate(float deltaTime, int mods)
+void AvisStrikeScene::OnInputUpdate(float deltaTime, int mods)
 {
     switch (currentState) {
     case GameState::PLAYING:
@@ -829,7 +829,7 @@ void Tema1::OnInputUpdate(float deltaTime, int mods)
     }
 }
 
-void Tema1::OnKeyPress(int key, int mods)
+void AvisStrikeScene::OnKeyPress(int key, int mods)
 {
     // Use P to toggle between playing and paused states
     if (key == GLFW_KEY_P) {
@@ -852,12 +852,12 @@ void Tema1::OnKeyPress(int key, int mods)
 }
 
 
-void Tema1::OnKeyRelease(int key, int mods)
+void AvisStrikeScene::OnKeyRelease(int key, int mods)
 {
     // Add key release event
 }
 
-glm::vec2 Tema1::getWorldMousePos(int mouseX, int mouseY)
+glm::vec2 AvisStrikeScene::getWorldMousePos(int mouseX, int mouseY)
 {
     // Gets world coordinates regardless how the window is resized
     glm::ivec2 resolution = window->GetResolution(true);
@@ -869,7 +869,7 @@ glm::vec2 Tema1::getWorldMousePos(int mouseX, int mouseY)
     return { scale.x * mouseX, scale.y * (resolution.y - mouseY)};
 }
 
-void Tema1::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
+void AvisStrikeScene::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 {
     // If dragging, move the dragged component to the cursor
     if (currentState == GameState::EDITOR && dragging) {
@@ -880,7 +880,7 @@ void Tema1::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 #define LEFT_MOUSE_BUTTON 1
 #define RIGHT_MOUSE_BUTTON 2
 
-void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
+void AvisStrikeScene::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
 {
     glm::vec2 mousePos = getWorldMousePos(mouseX, mouseY);
 
@@ -945,7 +945,7 @@ void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
     }
 }
 
-void Tema1::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
+void AvisStrikeScene::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
 {
     // Process releasing dragged element
     if (currentState == GameState::EDITOR && dragging) {
@@ -990,16 +990,16 @@ void Tema1::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
 }
 
 
-void Tema1::OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY)
+void AvisStrikeScene::OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY)
 {
 }
 
 
-void Tema1::OnWindowResize(int width, int height)
+void AvisStrikeScene::OnWindowResize(int width, int height)
 {
 }
 
-int Tema1::getUpgradeCost(int level)
+int AvisStrikeScene::getUpgradeCost(int level)
 {
     return UPGRADE_COST_PER_LEVEL * level;
 }

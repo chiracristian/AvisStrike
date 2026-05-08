@@ -85,7 +85,7 @@ AvisStrike/
 ├── infra/                 # CMake build utilities
 ├── src/
 │   ├── lab_m1/            # CUSTOM GAME LOGIC
-│   │   └── Tema1/
+│   │   └── AvisStrike/
 │   │       ├── entities/  # Behavior & Collision logic
 │   │       ├── shapes/    # Procedural mesh generation (ShapeFactory)
 │   │       └── ...        # State management & Validation engine

@@ -34,11 +34,11 @@ namespace m1
         }
     };
 
-    class Tema1 : public gfxc::SimpleScene
+    class AvisStrikeScene : public gfxc::SimpleScene
     {
     public:
-        Tema1();
-        ~Tema1();
+        AvisStrikeScene();
+        ~AvisStrikeScene();
 
         void Init() override;
         
