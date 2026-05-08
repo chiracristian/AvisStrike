@@ -1,6 +1,6 @@
 # AvisStrike
 
-**AvisStrike** is a high-performance, modular 2D combat engine and arcade shooter. It shifts the focus from static gameplay to **creative engineering**, allowing users to design, validate, and pilot custom-built spacecraft through an intuitive grid-based interface.
+**AvisStrike** is a high-performance, modular 2D arcade space combat engine. It shifts the focus from static gameplay to **creative engineering**, allowing users to design, validate, and pilot custom-built spacecraft through an intuitive grid-based interface.
 
 Built with **C++** and **OpenGL**, AvisStrike emphasizes clean architectural patterns, structural graph theory for vessel validation, and a procedural approach to 2D rendering.
 
