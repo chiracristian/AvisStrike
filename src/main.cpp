@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     wp.resolution = glm::ivec2(SCREEN_WIDTH, SCREEN_HEIGHT);
     wp.vSync = true;
     wp.selfDir = GetParentDir(std::string(argv[0]));
-    wp.name = "Tema 1 EGC - Chicken Invaders";
+    wp.name = "AvisStrike";
 
     // Init the Engine and create a new window with the defined properties
     (void)Engine::Init(wp);

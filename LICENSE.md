@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) The Project Contributors
+Copyright (c) Cristian-Ioan-George Chira, The Project Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
