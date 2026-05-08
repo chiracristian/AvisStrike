@@ -49,6 +49,12 @@ To maintain high performance during intense waves, the engine uses a **Swap-and-
 
 The collision system is a hybrid of **Axis-Aligned Bounding Boxes (AABB)** for structural components and **Circle-to-Circle** intersection tests for projectiles and enemies. This provides high-speed detection while maintaining gameplay "feel."
 
+## Screenshots
+
+![Screenshot in the Hangar](images/Hangar.png)
+
+![Screenshot during Combat](images/Combat.png)
+
 ## Controls
 
 | Mode | Action | Key/Input |
