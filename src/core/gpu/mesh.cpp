@@ -465,7 +465,7 @@ void Mesh::Render() const
             {
                 (materials[materialIndex]->texture)->BindToTextureUnit(GL_TEXTURE0);
             } else {
-                TextureManager::GetTexture(static_cast<unsigned int>(0))->BindToTextureUnit(GL_TEXTURE0);
+                //TextureManager::GetTexture(static_cast<unsigned int>(0))->BindToTextureUnit(GL_TEXTURE0);
             }
         }
 
